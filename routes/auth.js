@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
 const {check} = require('express-validator')
-const {signout,signup,signin} = require("../controllers/auth")
+const {signout,signup,signin,isSignedIn} = require("../controllers/auth")
 router.post("/signup",[
     check("name","name should be atleast 3 chat").isLength({min: 3}),
     check("email","email is required").isEmail(),
@@ -14,5 +14,9 @@ router.post("/signin",[
 ],signin)
 
 router.get("/signout", signout)
+
+// router.get("/testroute",isSignedIn,(req,res)=>{
+//     res.json(req.auth)
+// })
 
 module.exports = router;

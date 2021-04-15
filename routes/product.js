@@ -7,7 +7,7 @@ const {getUserById} = require("../controllers/user")
 
 //all of params
 router.param("userId",getUserById)
-router.param("productId",getProcuctById)
+// router.param("productId",getProcuctById)
 
 //all of actual routes
 router.post("/product/create/:userId",isSignedIn,isAuthenticated,isAdmin,createProduct)
